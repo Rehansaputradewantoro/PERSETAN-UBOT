@@ -25,7 +25,7 @@ try:
     ).json()
     if user.id in ramblacklist:
         LOGS.warning(
-            "rams TIDAK DAPAT BERJALAN, KARNA LO KONTOL MAKE SEMEMA MENA, BOT LO DI MATIIN HEHEH, LAPORKAN KE @MERDHNI"        )
+            "rams TIDAK DAPAT BERJALAN, KARNA LO KONTOL MAKE SEMEMA MENA, BOT LO DI MATIIN HEHEH, LAPORKAN KE @Revans505"        )
         sys.exit(1)
    # if 1826643972 not in DEVS:
       #  LOGS.warning(
@@ -38,8 +38,8 @@ except Exception as e:
 
 
 LOGS.info(f"Total Clients = {total} User")
-LOGS.info(f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ramsupportt")
-LOGS.info(f"✨ RAM - UBOT ✨ v {BOT_VER} [DAH AKTIF NGENTOT!!!]")
+LOGS.info(f"Jika {user.first_name} Membutuhkan Bantuan, Silahkan Tanyakan di Grup https://t.me/ZoneDangerSex")
+LOGS.info(f"✨ Revans - UBOT ✨ v {BOT_VER} [DAH AKTIF NGENTOT!!!]")
    
 
 LOOP.run_until_complete(ram_ubot_on())
