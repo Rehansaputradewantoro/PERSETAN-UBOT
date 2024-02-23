@@ -25,7 +25,7 @@ async def gen_chlog(repo, diff):
 
 async def print_changelogs(xx, ac_br, changelog):
     changelog_str = (
-        f"**✨ Tersedia Perapdetan RAM-UBOT Untuk branch [{ac_br}] :\n\n✨ Berikut ini Adalah Modules Yang harus Anda Apdet:**\n`{changelog}`"
+        f"**✨ Tersedia Perapdetan Revans-Userbot Untuk branch [{ac_br}] :\n\n✨ Berikut ini Adalah Modules Yang harus Anda Update:**\n`{changelog}`"
     )
     if len(changelog_str) > 4096:
         await edit_or_reply(xx, "**Udah lama ga apdet lo, Nih gua kasih file bokep.**")
@@ -49,7 +49,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
             await edit_or_reply(
                 xx,
                 "**[HEROKU]: Harap Tambahkan Variabel** `HEROKU_APP_NAME` "
-                " **untuk deploy perubahan terbaru dari RAM-UBOT.**",
+                " **untuk deploy perubahan terbaru dari Revans-Userbot.**",
             )
             repo.__del__()
             return
@@ -61,7 +61,7 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
             await edit_or_reply(
                 xx,
                 f"{txt}\n"
-                "**Kredensial Heroku tidak valid untuk deploy RAM-UBOT dyno.**",
+                "**Kredensial Heroku tidak valid untuk deploy Revans-Userbot dyno.**",
             )
             return repo.__del__()
         try:
@@ -89,10 +89,10 @@ async def deploy(xx, repo, ups_rem, ac_br, txt):
         build = heroku_app.builds(order_by="created_at", sort="desc")[0]
         if build.status == "failed":
             await edit_delete(
-                xx, "**Gagal Apdet!** Di Karenakan Ada Code Yang rusak.`"
+                xx, "**Gagal Update!** Di Karenakan Ada Code Yang rusak.`"
             )
         await edit_or_reply(
-            xx, f"**Seperti Nya, RAM-UBOT Mu Sudah Selesai Di Apdet, Silahkan Tunggu beberapa Saat Sampai Ada notif Dari RAM-UBOT, Setelah itu Test rams mu, jika tidak Bekerja Bisa Bertanya Ke @ramsupportt**"
+            xx, f"**Seperti Nya, Revans-Userbot Mu Sudah Selesai Di Apdet, Silahkan Tunggu beberapa Saat Sampai Ada notif Dari Revans-Userbot, Setelah itu Test rams mu, jika tidak Bekerja Bisa Bertanya Ke @ZoneDangerSex**"
     )
 
     else:
@@ -107,7 +107,7 @@ async def update(xx, repo, ups_rem, ac_br):
     except GitCommandError:
         repo.git.reset("--hard", "FETCH_HEAD")
     await edit_or_reply(
-        xx, f"**Seperti Nya, RAM-UBOT Mu Sudah Selesai Di Apdet, Silahkan Tunggu beberapa Saat Sampai Ada notif Dari RAM-UBOT, Setelah itu Test rams mu, jika tidak Bekerja Bisa Bertanya Ke @ramsupportt**"
+        xx, f"**Seperti Nya, Revans-Userbot Mu Sudah Selesai Di Update, Silahkan Tunggu beberapa Saat Sampai Ada notif Dari Revans-Userbot, Setelah itu Test rams mu, jika tidak Bekerja Bisa Bertanya Ke @ZoneDangerSex**"
     )
 
     try:
@@ -147,7 +147,7 @@ async def upstream(event):
         if conf is None:
             return await xx.edit(
                 f"**Sayangnya, Directory {error} Tampaknya Bukan Dari Repo."
-                f"\nTapi Kita Bisa Memperbarui Paksa rams Menggunakan** `{cmd}ngentot dulu`"
+                f"\nTapi Kita Bisa Memperbarui Paksa revans Menggunakan** `{cmd}ngentot dulu`"
             )
         repo = Repo.init()
         origin = repo.create_remote("upstream", off_repo)
@@ -168,12 +168,12 @@ async def upstream(event):
 
     changelog = await gen_chlog(repo, f"HEAD..upstream/{ac_br}")
     if conf == "dulu":
-        await xx.edit(f"`[RAM-UBOT], Sedang Apdet pada Branch [{ac_br}], Harap Tunggu beberapa Saat...`")
+        await xx.edit(f"`[Revans-Userbot], Sedang update pada Branch [{ac_br}], Harap Tunggu beberapa Saat...`")
         await deploy(xx, repo, ups_rem, ac_br, txt)
         return
 
     if changelog == "" and not force_update:
-        await edit_delete(xx, "**😔✋ Baru abis apdet tolol, Belom ada apdet lagi.**")
+        await edit_delete(xx, "**😔✋ Baru abis update tolol, Belom ada update lagi.**")
         return repo.__del__()
 
     if conf == "" and not force_update:
